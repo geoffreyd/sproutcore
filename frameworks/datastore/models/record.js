@@ -764,7 +764,7 @@ SC.Record = SC.Object.extend(
     @param {Hash} value The hash of attributes to apply to the child record.
     @param {Integer} key The store key that we are asking for
    */
-  registerNestedRecord: function(value, key) {
+  registerNestedRecord: function(value, key, attr) {
     var store, psk, csk, childRecord, recordType;
     // if a record instance is passed, simply use the storeKey.  This allows 
     // you to pass a record from a chained store to get the same record in the
@@ -773,7 +773,7 @@ SC.Record = SC.Object.extend(
       childRecord = value;
     } 
     else {
-      recordType = this._materializeNestedRecordType(value, key);
+      recordType = this._materializeNestedRecordType(value, attr);
       childRecord = this.createNestedRecord(recordType, value);
     }
     if (childRecord){
@@ -796,9 +796,9 @@ SC.Record = SC.Object.extend(
      nestedRecordNamespace <= this is the object that has the SC.Records defined
 
      @param {Hash} value The hash of attributes to apply to the child record.
-     @param {String} key the name of the key on the attribute
+     @param {String} attr the attribute
     */
-  _materializeNestedRecordType: function(value, key){
+  _materializeNestedRecordType: function(value, attr){
     var childNS, recordType, ret;
     // If no hash, return null.
     if (SC.typeOf(value) === SC.T_HASH){
@@ -810,8 +810,8 @@ SC.Record = SC.Object.extend(
       
       // check to see if we have a record type at this point and call 
       // for the typeClass if we dont
-      if (!recordType && key && this[key]){
-        recordType = this[key].get('typeClass');
+      if (!recordType && attr){
+        recordType = attr.get('defaultRecordType');
       }
       
       // When all else fails throw and exception
