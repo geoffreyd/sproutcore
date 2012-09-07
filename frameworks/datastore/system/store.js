@@ -487,9 +487,9 @@ SC.Store = SC.Object.extend( /** @scope SC.Store.prototype */ {
     managing locks.
     
     @param {Number|Array} storeKeys one or more store keys that changed
-    @param {Number} rev optional new revision number. normally leave null
-    @param {Boolean} statusOnly (optional) YES if only status changed
-    @param {String} key that changed (optional)
+    @param {Number} [rev] optional new revision number. normally leave null
+    @param {Boolean} [statusOnly] (optional) YES if only status changed
+    @param {String} [key] that changed (optional)
     @returns {SC.Store} receiver
   */
   dataHashDidChange: function(storeKeys, rev, statusOnly, key) {
@@ -2146,7 +2146,7 @@ SC.Store = SC.Object.extend( /** @scope SC.Store.prototype */ {
     @param {Class} recordType the SC.Record subclass
     @param {Object} id the record id or null
     @param {Hash} dataHash data hash to load
-    @param {Number} storeKey optional store key.  
+    @param {Number} [storeKey] optional store key.
     @returns {Number|Boolean} storeKey if push was allowed, NO if not
   */
   pushRetrieve: function(recordType, id, dataHash, storeKey) {
@@ -2172,9 +2172,9 @@ SC.Store = SC.Object.extend( /** @scope SC.Store.prototype */ {
     Call by the data source whenever you want to push a deletion into the 
     store.
     
-    @param {Class} recordType the SC.Record subclass
+    @param {Class|Object} recordType the SC.Record subclass
     @param {Object} id the record id or null
-    @param {Number} storeKey optional store key.  
+    @param {Number} [storeKey] optional store key.
     @returns {Number|Boolean} storeKey if push was allowed, NO if not
   */
   pushDestroy: function(recordType, id, storeKey) {

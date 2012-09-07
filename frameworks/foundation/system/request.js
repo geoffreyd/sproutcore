@@ -292,7 +292,7 @@ SC.Request = SC.Object.extend(SC.Copyable, SC.Freezable,
   /**
     Converts the current request to use JSON.
     
-    @param {Boolean} flag YES to make JSON, NO or undefined
+    @param {Boolean} [flag] YES to make JSON, NO or undefined
     @returns {SC.Request} receiver
   */
   json: function(flag) {
@@ -332,7 +332,7 @@ SC.Request = SC.Object.extend(SC.Copyable, SC.Freezable,
     mode then you can pass any object that can be converted to JSON as the 
     body.  Otherwise you should pass a string body.
     
-    @param {String|Object} body (optional)
+    @param {String|Object} [body] (optional)
     @returns {SC.Response} new response object
   */  
   send: function(body) {

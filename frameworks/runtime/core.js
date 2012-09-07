@@ -962,7 +962,7 @@ SC.mixin(Function.prototype,
     If you do not specify this option, computed properties are assumed to be
     not cacheable.
 
-    @param {Boolean} aFlag optionally indicate cacheable or no, default YES
+    @param {Boolean} [aFlag] optionally indicate cacheable or no, default YES
     @returns {Function} reciever
   */
   cacheable: function(aFlag) {

@@ -1192,7 +1192,7 @@ SC.Record.mixin( /** @scope SC.Record */ {
     record will be marked as needing a change.
     
     @param {SC.Record|String} recordType The type of record to create
-    @param {Hash} opts the options for the attribute
+    @param {Hash|Object} [opts] the options for the attribute
     @returns {SC.ManyAttribute|SC.ChildrenAttribute} created instance
   */
   toMany: function(recordType, opts) {
@@ -1218,7 +1218,7 @@ SC.Record.mixin( /** @scope SC.Record */ {
     of this relationship.
     
     @param {SC.Record|String} recordType the type of the record to create
-    @param {Hash} opts additional options
+    @param {Hash|Object} [opts] additional options
     @returns {SC.SingleAttribute|SC.ChildAttribute} created instance
   */
   toOne: function(recordType, opts) {

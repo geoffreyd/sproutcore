@@ -280,7 +280,7 @@ SC.Locale.locales = {
   parent.
   
   @param {String} languageCode
-  @param {Hash} strings
+  @param {Hash|Object} strings
   @returns {Object} receiver 
 */
 SC.stringsFor = function(languageCode, strings) {
