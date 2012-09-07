@@ -811,7 +811,7 @@ SC.Record = SC.Object.extend(
       // check to see if we have a record type at this point and call 
       // for the typeClass if we dont
       if (!recordType && attr){
-        recordType = attr.get('defaultRecordType');
+        recordType = attr.get('defaultRecordType') || attr.get('typeClass');
       }
       
       // When all else fails throw and exception

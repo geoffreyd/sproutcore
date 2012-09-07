@@ -41,7 +41,7 @@ SC.ChildAttribute = SC.RecordAttribute.extend(
     if (!record) {
       throw 'SC.Child: Error during transform: Unable to retrieve parent record.';
     }
-    if (!SC.none(value)) ret = record.registerNestedRecord(value, key);
+    if (!SC.none(value)) ret = record.registerNestedRecord(value, key, this);
         
     return ret;
   },
@@ -50,7 +50,7 @@ SC.ChildAttribute = SC.RecordAttribute.extend(
   fromType: function(record, key, value){
     var sk, store, ret;
     if (record){
-      ret = record.registerNestedRecord(value, key);
+      ret = record.registerNestedRecord(value, key, this);
       if (ret) {
         sk = ret.get('storeKey');
         store = ret.get('store');
