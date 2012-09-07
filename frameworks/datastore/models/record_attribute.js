@@ -474,6 +474,11 @@ if (SC.DateTime && !SC.RecordAttribute.transforms[SC.guidFor(SC.DateTime)]) {
       Convert a String to a DateTime
     */
     to: function(str, attr) {
+     if(attr.get('useUnixTime')) {
+        if(SC.typeOf(str) === SC.T_STRING) { str = parseInt(str); }
+        if(isNaN(str) || SC.typeOf(str) !== SC.T_NUMBER) { str = 0; }
+        return SC.DateTime.create({ milliseconds: str*1000, timezone: 0 });
+      }
       if (SC.none(str) || SC.instanceOf(str, SC.DateTime)) return str;
       var format = attr.get('format');
       return SC.DateTime.parse(str, format ? format : SC.DateTime.recordFormat);
@@ -484,6 +489,9 @@ if (SC.DateTime && !SC.RecordAttribute.transforms[SC.guidFor(SC.DateTime)]) {
     */
     from: function(dt, attr) {
       if (SC.none(dt)) return dt;
+      if (attr.get('useUnixTime')) {
+        return dt.get('milliseconds') / 1000;
+      }
       var format = attr.get('format');
       return dt.toFormattedString(format ? format : SC.DateTime.recordFormat);
     }
