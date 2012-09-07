@@ -374,7 +374,7 @@ SC.CollectionView = SC.View.extend(
     
     @property {String}
   */
-  contentValueKey: null,
+  contentValueKey: undefined,
   
   /**
     Enables keyboard-based navigate, deletion, etc. if set to true.
